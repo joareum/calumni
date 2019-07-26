@@ -1,0 +1,1 @@
+web: gunicorn calumni.wsgi --log-file -
