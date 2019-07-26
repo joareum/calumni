@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Calumni</title>
+</head>
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 style="text-align: center;">Sign up!</h1>
+
+
+
+<form method="POST" action="{% url 'signup'%}" style="text-align: center;">
+    {% csrf_token %}
+    Username
+    <br>
+    <input name="username" type="text" value="">
+    <br>
+    <br>
+    
+    Password
+    <br>
+    <input name="password1" type="password" value="">
+    <br>
+    Password reconfirm
+    <br>
+    <input name="password2" type="password" value="">
+    <br>
+    
+
+    
+    {% if error %}
+    <br>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:auto; width: 30%;">
+    <a style="text-align: center;"><strong>이런 안타깝군요!</strong> {{ error }}
+    </a>    
+    </div>
+    
+    {% endif %}
+    <br>
+    <input class="btn btn-primary" type="submit" value="Sign Up!">
+</form>
+
+{% endblock %}

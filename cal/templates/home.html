@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Calumni</title>
+
+<style> 
+        *{margin:0;padding:0;} 
+        ul,li{list-style:none;} 
+        .slide{height:300px;overflow:hidden;position:relative;} 
+        .slide ul{width:calc(100% * 4);display:flex;transition:1s;} 
+        .slide li{width:calc(100% / 4);height:300px;} 
+        /* .slide li:nth-child(1){background:#ffa;} 
+        .slide li:nth-child(2){background:#faa;} 
+        .slide li:nth-child(3){background:#afa;} 
+        .slide li:nth-child(4){background:#aaf;}  */
+        
+        .slide input{display:none;} 
+        .slide .bullet{position:absolute;bottom:20px;left:0;right:0;text-align:center;z-index:10;} 
+        .slide .bullet label{width:10px;height:10px;border-radius:10px;border:2px solid #666;display:inline-block;background:#fff;font-size:0;transition:0.5s;cursor:pointer;} 
+     
+        /* 슬라이드 조작 */ 
+        #pos1:checked ~ ul{margin-left:0;} 
+        #pos2:checked ~ ul{margin-left:-100%;} 
+        #pos3:checked ~ ul{margin-left:-200%;} 
+        #pos4:checked ~ ul{margin-left:-300%;} 
+        
+     
+        /* bullet 조작 */ 
+        #pos1:checked ~ .bullet label:nth-child(1), 
+        #pos2:checked ~ .bullet label:nth-child(2), 
+        #pos3:checked ~ .bullet label:nth-child(3), 
+        #pos4:checked ~ .bullet label:nth-child(4){background:#666;},
+        
+
+        /* 로고 */
+        img.logo{
+          position:absolute;
+          /* left:100px; */
+          top:300px;
+          margin-left: auto;
+          border-style: dashed; 
+          border:0;
+        }
+      </style> 
+
+</head>
+{% extends 'base.html' %}
+{% block content %}
+<body>
+<br>
+  <!-- 배너 슬라이드 -->
+  <div class="slide"> 
+    <input type="radio" name="pos" id="pos1" checked> 
+    <input type="radio" name="pos" id="pos2"> 
+    <input type="radio" name="pos" id="pos3"> 
+    <input type="radio" name="pos" id="pos4"> 
+    <ul> 
+      <li>
+        <img src="https://pbs.twimg.com/profile_images/773340588154380288/2ZTg4WC-_400x400.jpg" width="200" height="200" class="logo" style="margin:auto;">
+      </li> 
+      <li>
+        <img src="https://post-phinf.pstatic.net/MjAxNzA3MDRfMTcy/MDAxNDk5MTQ4NzM4MzU1.eDf2C2MmEuhrltHSqsCc7VIj1O_Ip0UABrgyL1Azvv8g.rAxgruhFHMUzTSrfG0PBOoPY0RyKPEV1ySuYn1w9lakg.JPEG/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B3%B5%EC%82%AC.jpg?type=w1200" width="200" height="200">
+        
+      </li> 
+      <li></li> 
+      <li></li> 
+    </ul> 
+    <p class="bullet"> 
+      <label for="pos1">1</label> 
+      <label for="pos2">2</label> 
+      <label for="pos3">3</label> 
+      <label for="pos4">4</label> 
+    </p> 
+  </div>  
+
+
+  <div class="title">게시판</div>
+
+  <table class="table">
+      <thead>
+          <tr>
+              <th>No.</th>
+              <th>Title</th>
+              <th>합격한 기업, 직무</th>
+              <th>학점</th>
+              <th>자격증</th>
+              <th>합격수기</th>
+              <th>공모전</th>
+              <th>대외활동</th>
+              <th>교내활동</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% if post_list %}
+              {% for post in post_list %}
+      <tr>
+      <td>{{ post.title }}</tr>
+      <td>{{ post.apply }}</tr>
+      <td>{{ post.score }}</tr>
+      <td>{{ post.cer }}</tr>
+      <td>{{ post.write }}</tr>
+      <td>{{ post.body }}</tr>
+      <td>{{ post.act }}</tr>
+      <td>{{ post.schoolact }}</tr>   
+      </tr>
+      {% endfor %}
+      {% else %}
+      {% endif %}
+  </tbody>
+</table>
+
+<br><br><br>
+
+        {% for cal in cals %}
+        
+        <h1><a href="{% url 'detail' cal.id %}">{{ cal.title }}</h1>
+        <h2><a href="{% url 'detail' cal.id %}">{{ cal.write }}</a></h2>
+        <br>
+        {% endfor %}
+        
+  {% endblock %}
+</body>
+</html>

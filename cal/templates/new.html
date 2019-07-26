@@ -1,0 +1,143 @@
+<head>
+<style>
+
+.cal-label{
+    
+}
+#cal-title{
+    width:100px;
+}
+#cal-body{
+    width:900px;
+}
+.answer{
+    width:700px;
+    text-align:center;
+}
+.answer2{
+    width:100px;
+    text-align:center;
+}
+
+.textbox{
+    width:700px;
+    height:400px;
+    text-align:center;
+}
+.boxtitle{
+    float:right;
+   
+}
+
+</style>
+</head>
+
+{% extends 'base.html' %}
+{% block content %}
+<body>
+<br>
+<form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-container">
+
+    <h5 class="question" for="cal-title">제목  </h5>
+    <input type="text" name='cal_title' class="answer" placeholder="글제목">
+    
+    <br><br>
+    <h5 class="question" for="cal-apply">어떤 기업, 직무에 합격하셨나요?</h5>
+
+    <input type="text" class="answer" name="cal_apply" placeholder="직접 입력">
+    <br><br>
+    <div class="dropdown-divider"></div>
+
+    <h5 class="question" for="cal-score">선배님의 대학시절 학점은 얼마였나요?</h5>
+
+    <input type="text" class="answer" name="cal_score" placeholder="직접 입력">
+    <br><br>
+    <div class="dropdown-divider"></div>
+<!-- 
+<form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="input-container">
+        
+        <label class="cal-label" for="cal-title">학점</label>
+        <input type="text" id="cal-title" name="cal_title" placeholder="직접입력">
+    </div>
+    <div class="inputcontainer">
+        <label class="cal-label" for="cal-body"></label>
+        <textarea id="cal-body" name="cal_body" id="" cols="30" rows="10" placeholder="content">   
+        </textarea>
+    </div> -->
+        
+    <h5 class="question" for="cal-cer">선배님의 자격증이 궁금해요! (어학, 기사자격증 등등)</h5>
+    
+    <input type="text" class="answer" name="cal_cer" placeholder="직접 입력">
+    <br><br>
+    <div class="dropdown-divider"></div>
+    
+    <!-- <br>
+    <h6 class="sub_question" name='cal_cer'><strong>어학</strong></h6>
+
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+    <label class="form-check-label" for="inlineCheckbox1">토익</label><br>
+    <input type="text" class="answer2" placeholder="_______점">
+    </div>
+
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+    <label class="form-check-label" for="inlineCheckbox2">토스</label>
+    <br>
+    <input type="text" class="answer2" placeholder="레벨 ___">
+    </div>
+
+    <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+    <label class="form-check-label" for="inlineCheckbox3">오픽</label>
+    <br>
+    <input type="text" class="answer2" placeholder="레벨 ___">
+    </div> -->
+
+    <h5 class="question" for="cal-write">합격수기를 자유롭게 들려주세요!</h5>
+
+    <input type="text" class="textbox" name="cal_write" placeholder="직접 입력">
+    <br><br>
+    
+    <div class="dropdown-divider"></div>
+
+    <h5 class="question" for="cal-body">공모전에 대한 이야기 들려주세요!</h5>
+
+    <input type="text" class="textbox" name="cal_body" placeholder="직접 입력">
+    <br><br>
+    
+    <div class="dropdown-divider"></div>
+    <h5 class="question" for="cal-act">기억에 남는 대외활동이 있으신가요?</h5>
+    <input type="text" class="textbox" name="cal_act" placeholder="직접 입력">
+    <br><br>
+    
+    <div class="dropdown-divider"></div>
+
+    <h5 class="question" for="cal-schoolact">대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등등)</h5>
+    <br>
+    <input type="text" class="textbox" name="cal_schoolact" placeholder="직접 입력">
+    <br><br>
+    
+    <div class="dropdown-divider"></div>
+
+    <br>
+    <div class="input-container" for="cal-image">
+            <input type="file" name="cal_image">
+    </div>
+    <br>
+  
+    
+    <div class="input-container">
+        <!-- <button class="cal-submit" form="cal-form" type="submit">글쓰기</button> -->
+        <input type="submit" class="btn btn-dark" form="cal-form" value="저장"/>
+    </div>
+</form>
+
+{% endblock %}
+
+</body>
+

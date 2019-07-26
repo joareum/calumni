@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title><!-- 글목록 페이지 -->
+</head>
+
+
+<body>
+        {% block content %}
+    {% for cal_post in cal_posts %}
+     <h1>{{ cal_post.title }}</h1>
+     <h2>{{ cal_post.body }}</h2>
+     <br>
+        {% endfor %}
+    
+
+{% endblock %}
+
+
+
+</body>
+</html>
