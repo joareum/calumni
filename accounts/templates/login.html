@@ -6,7 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Calumni</title>
-<style></style>
+
+<style type="text/css">
+#login-form{
+
+width:400px;
+
+margin:100px auto;
+
+border: 1px solid gray;
+
+border-radius: 5px;
+
+padding: 15px;
+
+}
+</style>
 
 </head>
 
@@ -14,9 +29,9 @@
 {% block content %}
 
 <body>
-<h1 style="text-align: center;">Login</h1>
 
-<form method="POST" action="{% url 'login'%}" style="text-align: center;" >
+<form id="login-form" method="POST" action="{% url 'login'%}" style="text-align: center;" >
+    <p style="text-align: center;">LOGIN</p>
     {% csrf_token %}
     Username
     <br>
@@ -29,17 +44,16 @@
     
     {% if error %}
     <br>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:auto; width: 30%;">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="font-size:12px; margin:auto; width: 30% auto;">
     <a style="text-align: center;"><strong>아이고!</strong> {{ error }}
     </a>    
     </div>
     {% endif %}
     <br>
-    <input class="btn btn-primary" type="submit" value="Login">
+    <input class="btn" type="submit" value="Login" style="color: white; background-color: #66C4A8; ">
+    <input class="btn" type="button" value=signup onclick="location.href={% url 'signup' %}" style="color: white; background-color: #66C4A8;">
+
 </form>
-
-<br>
-
 
 
 

@@ -1,13 +1,27 @@
 <head>
 <style>
 
-.cal-label{
+.question{
+    /* width:100px; */
+    text-align:center;
+    margin:0px;
+    font-size:20px;
+    font-weight:600;
+    background-color:#E0ECF8;
     
+    /* color:white; */
 }
-#cal-title{
-    width:100px;
+.box{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 15px;
+    width:1000px;
+    align:center;
+    top:20px;
+    position:relative;
+    left:200px;
 }
-#cal-body{
+.cal-body{
     width:900px;
 }
 .answer{
@@ -30,31 +44,33 @@
 }
 
 </style>
+
 </head>
 
 {% extends 'base.html' %}
 {% block content %}
 <body>
 <br>
-<form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data">
+<form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data" style="text-align: center;">
     {% csrf_token %}
+    <br><br>
     <div class="input-container">
-
-    <h5 class="question" for="cal-title">제목  </h5>
-    <input type="text" name='cal_title' class="answer" placeholder="글제목">
+    
+        <div class="box">
+        <div class="question" for="cal-title"></div><br>
+        <div><input type="text" name='cal_title' class="answer" placeholder="제목">
     
     <br><br>
-    <h5 class="question" for="cal-apply">어떤 기업, 직무에 합격하셨나요?</h5>
-
-    <input type="text" class="answer" name="cal_apply" placeholder="직접 입력">
-    <br><br>
     <div class="dropdown-divider"></div>
-
-    <h5 class="question" for="cal-score">선배님의 대학시절 학점은 얼마였나요?</h5>
-
-    <input type="text" class="answer" name="cal_score" placeholder="직접 입력">
+        <div class="question" for="cal-apply"></div><br>
+        <input type="text" class="answer" name="cal_apply" placeholder="어떤 기업, 직무에 합격하셨나요?">
     <br><br>
-    <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
+
+        <div class="question" for="cal-score"></div><br>
+        <input type="text" class="answer" name="cal_score" placeholder="선배님의 대학시절 학점은 얼마였나요?">
+    <br><br>
+        <div class="dropdown-divider"></div>
 <!-- 
 <form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
@@ -69,9 +85,8 @@
         </textarea>
     </div> -->
         
-    <h5 class="question" for="cal-cer">선배님의 자격증이 궁금해요! (어학, 기사자격증 등등)</h5>
-    
-    <input type="text" class="answer" name="cal_cer" placeholder="직접 입력">
+    <div class="question" for="cal-cer"></div><br>
+    <input type="text" class="answer" name="cal_cer" placeholder="선배님의 자격증이 궁금해요! (어학, 기사자격증 등)">
     <br><br>
     <div class="dropdown-divider"></div>
     
@@ -98,39 +113,36 @@
     <input type="text" class="answer2" placeholder="레벨 ___">
     </div> -->
 
-    <h5 class="question" for="cal-write">합격수기를 자유롭게 들려주세요!</h5>
-
-    <input type="text" class="textbox" name="cal_write" placeholder="직접 입력">
+        <div class="question" for="cal-write"></div><br>
+        <input type="text" class="textbox" name="cal_write" placeholder="합격수기를 자유롭게 들려주세요!">
     <br><br>
     
-    <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
 
-    <h5 class="question" for="cal-body">공모전에 대한 이야기 들려주세요!</h5>
-
-    <input type="text" class="textbox" name="cal_body" placeholder="직접 입력">
+        <div class="question" for="cal-body"></div><br>
+        <input type="text" class="textbox" name="cal_body" placeholder="공모전에 대한 이야기 들려주세요!">
     <br><br>
     
-    <div class="dropdown-divider"></div>
-    <h5 class="question" for="cal-act">기억에 남는 대외활동이 있으신가요?</h5>
-    <input type="text" class="textbox" name="cal_act" placeholder="직접 입력">
+        <div class="dropdown-divider"></div>
+        <div class="question" for="cal-act"></div><br>
+         <input type="text" class="textbox" name="cal_act" placeholder="기억에 남는 대외활동이 있으신가요?">
     <br><br>
     
-    <div class="dropdown-divider"></div>
+        <div class="dropdown-divider"></div>
 
-    <h5 class="question" for="cal-schoolact">대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등등)</h5>
-    <br>
-    <input type="text" class="textbox" name="cal_schoolact" placeholder="직접 입력">
-    <br><br>
+        <div class="question" for="cal-schoolact"></div><br>
     
-    <div class="dropdown-divider"></div>
+        <input type="text" class="textbox" name="cal_schoolact" placeholder="대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등등)">
+    <br><br>
 
-    <br>
-    <div class="input-container" for="cal-image">
-            <input type="file" name="cal_image">
+        
     </div>
-    <br>
-  
-    
+        <div class="dropdown-divider"></div><br>
+        <div class="input-container" for="cal-image">
+            <input type="file" name="cal_image">
+        </div>
+
+        <br><br>
     <div class="input-container">
         <!-- <button class="cal-submit" form="cal-form" type="submit">글쓰기</button> -->
         <input type="submit" class="btn btn-dark" form="cal-form" value="저장"/>

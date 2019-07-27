@@ -17,12 +17,33 @@ nav.justify-content-end{color: #FFFFFF;}
 .logoutuser{
     color:#FFFFFF;
 }
+.navbar-inverse { background-color: #66C4A8}
+.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #66C4A8}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #66C4A8}
+.dropdown-menu { background-color: #FFFFFF}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #66C4A8}
+.navbar-inverse { background-image: none; }
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
+.navbar-inverse { border-color: #66C4A8}
+.navbar-inverse .navbar-brand { color: #FFFFFF}
+.navbar-inverse .navbar-brand:hover { color: #FFFFFF}
+.navbar-inverse .navbar-nav>li>a { color: #DEFFEE}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #DEFFEE}
+.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #FFFFFF}
+.dropdown-menu>li>a { color: #525252}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #525252}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #525252}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #525252}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #525252}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #525252}
+
+
+
 </style>
 </head>
 
 <body> 
- 
-       
     <!--jumbotron-->
 
     <style type="text/css">
@@ -31,8 +52,11 @@ nav.justify-content-end{color: #FFFFFF;}
             a:hover {color:black; text-decoration:none; } 
             a:active   {color:black; text-decoration:none}
             a:visited  {color:black; text-decoration:none} 
+            
     </style>
+
     <a href="{% url 'home' %}" >
+
     <div class="jumbotron"  style="height:200px; text-decoration: none; margin-bottom:0;">
         <h1 class="title" style="font-family: 'Do Hyeon', sans-serif;">선배들의 인생족보, CALUMNI</h1>
         <p class="subtitle" style="font-family: 'Nanum Gothic', sans-serif;">선배들이 어디서 무엇을 하고 있는지 궁금한 후배님을 위해</p>
@@ -42,7 +66,7 @@ nav.justify-content-end{color: #FFFFFF;}
 
 
     <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="font-family: 'Nanum Gothic', sans-serif; margin-top: 0; " >
+    <nav class="navbar navbar-expand-lg navbar-inverse sticky-top bs-docs-nav" style="font-family: 'Nanum Gothic', sans-serif; margin-top: 0; " >
     
         <a class="navbar-brand" href="{% url 'home' %}" > CALUMNI</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +76,7 @@ nav.justify-content-end{color: #FFFFFF;}
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">대학원 </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >대학원 </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item"  href="#">국내</a>
                         <a class="dropdown-item" href="#">해외</a>
@@ -62,7 +86,7 @@ nav.justify-content-end{color: #FFFFFF;}
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >
                     취업</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#">사기업</a>
@@ -83,7 +107,7 @@ nav.justify-content-end{color: #FFFFFF;}
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >
                   공무원
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -98,7 +122,7 @@ nav.justify-content-end{color: #FFFFFF;}
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">창업</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >창업</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">서비스</a>
                         <a class="dropdown-item" href="#">유통</a>
@@ -111,32 +135,30 @@ nav.justify-content-end{color: #FFFFFF;}
 
                 {% if user.is_authenticated %}
 
-            <ul class="navbar-nav justify-content-end ">
-                <li style="color:white;"> 환영합니다.  　{{ user.username }} 님</li>
-                <a href="javascript:{document.getElementById('logout').submit()}"><li class="logoutuser" style="color:white;"> 　Logout　 
+            <ul class="navbar-nav justify-content-end " style="color:white; font-size: 14px;">
+                <li > 환영합니다.  　{{ user.username }} 님</li>
+                <a href="javascript:{document.getElementById('logout').submit()}"><li class="logoutuser" > 　Logout　 
                     <form id="logout" method="POST" action="{% url 'logout' %}">{% csrf_token %} </form></li></a>
             </ul>
 
-            <ul class="navbar-nav justify-content-end ">
+            <ul class="navbar-nav justify-content-end " style="font-size: 14px;">
                 <li class="nav-item"  >
-                <a class="nav-link" href="{% url 'new' %}" style="color:white;" >글쓰기　</a>
+                <a class="nav-link" href="{% url 'new' %}"  >글쓰기　</a>
                 </li>
             </ul>
 
 
                 {% else %}
-            <ul class="navbar-nav justify-content-end ">
+            <ul class="navbar-nav justify-content-end " style="font-size: 14px;">
             <li class="nav-item" >
-                <a class="nav-link" href="{% url 'login' %}" style="color:white;">로그인</a>
+                <a class="nav-link" href="{% url 'login' %}" >로그인</a>
             </li> 
-            <li class="nav-item"   >
-                <a class="nav-link" href="{% url 'signup' %}" style="color:white;">회원가입</a>
-            </li>
+            
             </ul>
 
-            <ul class="navbar-nav justify-content-end ">
+            <ul class="navbar-nav justify-content-end " style="font-size: 14px;">
                 <li class="nav-item"  >
-                <a class="nav-link" href="{% url 'login' %}" style="color:white;" >글쓰기　</a>
+                <a class="nav-link" href="{% url 'login' %}"  >글쓰기　</a>
                 </li>
             </ul>
 

@@ -6,16 +6,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Calumni</title>
+<style type="text/css">
+    #signup-form{
+    
+    width:400px;
+    
+    margin:100px auto;
+    
+    border: 1px solid gray;
+    
+    border-radius: 5px;
+    
+    padding: 15px;
+    
+    }
+    </style>
+
+
+
 </head>
 
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 style="text-align: center;">Sign up!</h1>
 
 
 
-<form method="POST" action="{% url 'signup'%}" style="text-align: center;">
+
+<form id="signup-form" method="POST" action="{% url 'signup'%}" style="text-align: center;">
+    <p style="text-align: center;">SIGN UP</p>
+
     {% csrf_token %}
     Username
     <br>
@@ -26,6 +46,7 @@
     Password
     <br>
     <input name="password1" type="password" value="">
+    <br>
     <br>
     Password reconfirm
     <br>
@@ -43,7 +64,7 @@
     
     {% endif %}
     <br>
-    <input class="btn btn-primary" type="submit" value="Sign Up!">
+    <input class="btn " type="submit" value="Sign Up!" style="color: white; background-color: #66C4A8; ">
 </form>
 
 {% endblock %}
