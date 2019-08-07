@@ -13,6 +13,11 @@ urlpatterns = [
     path('signup/', accounts.signup, name='signup'),
     path('login/', accounts.login, name='login'),
     path('logout/', accounts.logout, name='logout'),
-    path('detail/<int:post_id>/',cal.detail, name="detail"),
+    path('detail/<int:post_id>/',cal.detail, name='detail'),
+    path('<int:post_id>/update/', cal.update, name="update"),
+    path('<int:post_id>/delete/', cal.delete, name="delete"),
+    path('<int:post_id>/renew/', cal.renew, name='renew'),
+    path('<int:post_id>/comment/create', cal.create_c, name="comment"),
+    
     #path('newblog',views.blogpost, name='newblog'),   
 ] 

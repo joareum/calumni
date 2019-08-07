@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,36 +10,108 @@
     <title>Document <!-- 상세페이지 --></title>
 
     <!-- <link href="font.css" rel="stylesheet" -->
-
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
-    <style>
-      h2{
-        font-family: "Nanum Gothic", sans-serif;
-        font-size: 20px;
-      }
-    
+    <style type="text/css">
+        .answer{
+        width:700px;
+        text-align:center;
+        }  
+
+
     </style>
-
-
-
 </head>
-{% block content %}
+
+
 <body>
-    <div class="box" style="text-align: center; font-display: center; font-size: 20px;" >
 
-        <h1 class="title">제목 : {{ post.title }}</h1>
-        <h2 class="apply">합격한 기업, 직무 : {{ post.apply }}</h2>
-        <h3 class="score">학점 : {{ post.score }}</h3>
-        <h4 class="cer">자격증 : {{ post.cer }}</h4>
-        <h5 class="write">합격수기 : {{ post.write }}</h5>
-        <h5 class="body">공모전 : {{ post.body }}</h6>
-        <h5 class="act">대외활동 : {{ post.act }}</h7>
-        <h5 class="schoolact">교내활동 : {{ post.schoolact }}</h8>
+          <div class="card" style="margin-top:50px; margin-left:50px; margin-right:50px; border-radius:10px;">
+            <div class="card-body">
+              <div class="card-body-question" style="font-size:25px; font-weight:600; color:#6E6E6E;">제목</div><br>
+              <div class="answer" style="font-size:20px;">{{ post.title }}</div>
+
+                <br><br>
+                <div class="dropdown-divider"></div>
+
+                <div class="card-body-question" style="font-size:25px; font-weight:600; color:#6E6E6E;">합격한 기업, 직무</div><br>
+                <div class="answer" style="font-size:20px; white-space: pre-wrap;">{{ post.apply }}</div>
+
+                <br><br>
+                <div class="dropdown-divider"></div>
+
+                <div class="card-body-question" style="font-size:25px; font-weight:600; color:#6E6E6E;">학점</div><br>
+                <div class="answer" style="font-size:20px; white-space: pre-wrap;">{{ post.score }}</div>
+
+                <br><br>
+                <div class="dropdown-divider"></div>
+
+                <div class="card-body-question" style="font-size:25px; font-weight:600; color:#6E6E6E;">자격증</div><br>
+                <div class="answer" style="font-size:20px; white-space: pre-wrap;">{{ post.cer }}</div>
+
+                <br><br>
+                <div class="dropdown-divider"></div>
+
+                <div class="card-body-question" style="font-size:25px; font-weight:600; color:#6E6E6E;">합격수기</div><br>
+                <div class="answer" style="font-size:20px; white-space: pre-wrap;">{{ post.write }}</div>
+
+                <br><br>
+                <div class="dropdown-divider"></div>
+
+                <div class="card-body-question" style="font-size:25px; font-weight:600; color:#6E6E6E;">공모전</div><br>
+                <div class="answer" style="font-size:20px; white-space: pre-wrap;">{{ post.body }}</div>
+
+                <br><br>
+                <div class="dropdown-divider"></div>
+
+                <div class="card-body-act" style="font-size:25px; font-weight:600; color:#6E6E6E;">대외활동</div><br>
+                <div class="answer" style="font-size:20px; white-space: pre-wrap;">{{ post.act }}</div>
+
+                <br><br>
+                <div class="dropdown-divider"></div>
+
+                <div class="card-body-schoolact" style="font-size:25px; font-weight:600; color:#6E6E6E;">교내활동</div><br>
+                <div class="answer" style="font-size:20px; white-space: pre-wrap;">{{ post.schoolact }}</div>
+            </div>
+          </div>
+       
+        <br><br><br><br>
+<div>
+    <form action="{% url 'comment' post.id %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="comment_username" placeholder="닉네임">
+      <textarea name="" id="" cols="30" rows="10" name="comment_body" placeholder="댓글을 입력해주세요"></textarea>
+      <input type="submit" value="댓글 작성"></form>
+</div>
+
+{% for comment in cal.comment_set.all %}
+  <div>
+    <span>{{ comment.username }}</span>
+    <span>{{ comment.pub_date }}</span>
+    <p>{{ comment.body }}</p>
+  </div>
+  {% endfor %}
+
+    <div>
+      
     </div>
+    <a class="renew" href="{% url 'renew' post.id %}">수정</a>
+    <a class="delete" href="{% url 'delete' post.id %}">삭제</a>
 
-    {% endblock %}
+    <!-- <div class="renew">
+        <p><a class="renew" href="{% url 'renew' post.id %}">수정</a></p>
+      </div> -->
+
+      <form action="{% url 'delete' post.id %}" id="post-delete" method="POST">
+        {% csrf_token %}
+        </form>
+
+        <div class="input-container">
+        <input type="submit" class="delete" form="post-delete" value="글 삭제하기"/>
+        </div>
+      <!-- <input form="post-delete" type="submit" class="delete">글 삭제하기</input> -->
+    
+    
     
 </body>
-    
+{% endblock %}    
 </html>

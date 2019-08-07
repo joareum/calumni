@@ -11,16 +11,7 @@
     
     /* color:white; */
 }
-.box{
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding: 15px;
-    width:1000px;
-    align:center;
-    top:20px;
-    position:relative;
-    left:200px;
-}
+
 .cal-body{
     width:900px;
 }
@@ -40,7 +31,6 @@
 }
 .boxtitle{
     float:right;
-   
 }
 
 </style>
@@ -49,14 +39,15 @@
 
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 <body>
 <br>
 <form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data" style="text-align: center;">
     {% csrf_token %}
     <br><br>
-    <div class="input-container">
     
-        <div class="box">
+        <div class="card" style="margin-top:50px; margin-left:100px; margin-right:100px; border-radius:10px;">
+        <div class="card-body">
         <div class="question" for="cal-title"></div><br>
         <div><input type="text" name='cal_title' class="answer" placeholder="제목">
     
@@ -71,47 +62,11 @@
         <input type="text" class="answer" name="cal_score" placeholder="선배님의 대학시절 학점은 얼마였나요?">
     <br><br>
         <div class="dropdown-divider"></div>
-<!-- 
-<form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="input-container">
-        
-        <label class="cal-label" for="cal-title">학점</label>
-        <input type="text" id="cal-title" name="cal_title" placeholder="직접입력">
-    </div>
-    <div class="inputcontainer">
-        <label class="cal-label" for="cal-body"></label>
-        <textarea id="cal-body" name="cal_body" id="" cols="30" rows="10" placeholder="content">   
-        </textarea>
-    </div> -->
-        
+
     <div class="question" for="cal-cer"></div><br>
     <input type="text" class="answer" name="cal_cer" placeholder="선배님의 자격증이 궁금해요! (어학, 기사자격증 등)">
     <br><br>
     <div class="dropdown-divider"></div>
-    
-    <!-- <br>
-    <h6 class="sub_question" name='cal_cer'><strong>어학</strong></h6>
-
-    <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-    <label class="form-check-label" for="inlineCheckbox1">토익</label><br>
-    <input type="text" class="answer2" placeholder="_______점">
-    </div>
-
-    <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-    <label class="form-check-label" for="inlineCheckbox2">토스</label>
-    <br>
-    <input type="text" class="answer2" placeholder="레벨 ___">
-    </div>
-
-    <div class="form-check form-check-inline">
-    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-    <label class="form-check-label" for="inlineCheckbox3">오픽</label>
-    <br>
-    <input type="text" class="answer2" placeholder="레벨 ___">
-    </div> -->
 
         <div class="question" for="cal-write"></div><br>
         <input type="text" class="textbox" name="cal_write" placeholder="합격수기를 자유롭게 들려주세요!">
@@ -132,21 +87,27 @@
 
         <div class="question" for="cal-schoolact"></div><br>
     
-        <input type="text" class="textbox" name="cal_schoolact" placeholder="대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등등)">
+        <input type="text" class="textbox" name="cal_schoolact" placeholder="대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등)">
     <br><br>
 
         
     </div>
         <div class="dropdown-divider"></div><br>
-        <div class="input-container" for="cal-image">
+        
+        <div class="btn btn-outline-secondary" for="cal-image">
             <input type="file" name="cal_image">
         </div>
 
         <br><br>
     <div class="input-container">
-        <!-- <button class="cal-submit" form="cal-form" type="submit">글쓰기</button> -->
-        <input type="submit" class="btn btn-dark" form="cal-form" value="저장"/>
+    
+        <input type="submit" class="btn btn-dark" form="cal-form" value="글쓰기"/>
     </div>
+
+</div>
+</div>
+
+
 </form>
 
 {% endblock %}

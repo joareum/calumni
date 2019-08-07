@@ -1,0 +1,118 @@
+<head>
+<style>
+
+.question{
+    /* width:100px; */
+    text-align:center;
+    margin:0px;
+    font-size:20px;
+    font-weight:600;
+    background-color:#E0ECF8;
+    
+    /* color:white; */
+}
+
+.cal-body{
+    width:900px;
+}
+.answer{
+    width:700px;
+    text-align:center;
+}
+.answer2{
+    width:100px;
+    text-align:center;
+}
+
+.textbox{
+    width:700px;
+    height:400px;
+    text-align:center;
+}
+.boxtitle{
+    float:right;
+}
+
+</style>
+
+</head>
+
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<body>
+<br>
+<form action="{% url 'update' renew.id %}" id="cal-form" method="POST" enctype="multipart/form-data" style="text-align: center;">
+    {% csrf_token %}
+    <br><br>
+    
+        <div class="card" style="margin-top:50px; margin-left:100px; margin-right:100px; border-radius:10px;">
+        <div class="card-body">
+        <div class="question" for="cal-title"></div><br>
+        <div><input type="text" name='cal_title' class="answer" placeholder="제목">
+    
+    <br><br>
+    <div class="dropdown-divider"></div>
+        <div class="question" for="cal-apply"></div><br>
+        <input type="text" class="answer" name="cal_apply" placeholder="어떤 기업, 직무에 합격하셨나요?">
+    <br><br>
+        <div class="dropdown-divider"></div>
+
+        <div class="question" for="cal-score"></div><br>
+        <input type="text" class="answer" name="cal_score" placeholder="선배님의 대학시절 학점은 얼마였나요?">
+    <br><br>
+        <div class="dropdown-divider"></div>
+
+    <div class="question" for="cal-cer"></div><br>
+    <input type="text" class="answer" name="cal_cer" placeholder="선배님의 자격증이 궁금해요! (어학, 기사자격증 등)">
+    <br><br>
+    <div class="dropdown-divider"></div>
+
+        <div class="question" for="cal-write"></div><br>
+        <input type="text" class="textbox" name="cal_write" placeholder="합격수기를 자유롭게 들려주세요!" >
+    <br><br>
+    
+        <div class="dropdown-divider"></div>
+
+        <div class="question" for="cal-body"></div><br>
+        <input type="text" class="textbox" name="cal_body" placeholder="공모전에 대한 이야기 들려주세요!">
+    <br><br>
+    
+        <div class="dropdown-divider"></div>
+        <div class="question" for="cal-act"></div><br>
+         <input type="text" class="textbox" name="cal_act" placeholder="기억에 남는 대외활동이 있으신가요?">
+    <br><br>
+    
+        <div class="dropdown-divider"></div>
+
+        <div class="question" for="cal-schoolact"></div><br>
+    
+        <input type="text" class="textbox" name="cal_schoolact" placeholder="대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등)">
+    <br><br>
+
+        
+    </div>
+        <div class="dropdown-divider"></div><br>
+        
+        <div class="btn btn-outline-secondary" for="cal-image">
+            <input type="file" name="cal_image">
+        </div>
+
+        <br><br>
+    <div class="input-container">
+    
+        <input type="submit" class="btn btn-dark" form="cal-form" value="수정하기"/>
+    </div>
+
+</div>
+</div>
+
+
+</form>
+
+{% endblock %}
+
+</body>
+
+
+

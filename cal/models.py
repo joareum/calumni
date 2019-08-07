@@ -18,3 +18,13 @@ class Cal(models.Model):
 
     def summary(self):
         return self.body[:20]
+
+# 댓글
+class Comment(models.Model):
+    post = models.ForeignKey(Cal, on_delete=models.CASCADE)
+    username = models.CharField(max_length=50)
+    body = models.TextField()
+    pub_date = models.DateTimeField("data published")
+    
+    def __str__(self):
+        return self.body

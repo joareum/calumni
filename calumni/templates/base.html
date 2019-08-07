@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+ {% load staticfiles %}
+ <!DOCTYPE html>
 <html lang="ko">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,42 +12,38 @@
 
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet">
     
 <style type="text/css">
-nav.justify-content-end{color: #FFFFFF;} 
-.logoutuser{
-    color:#FFFFFF;
-}
-.navbar-inverse { background-color: #66C4A8}
-.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #66C4A8}
-.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #66C4A8}
+.navbar-inverse { background-color: #5B9BD5}
+.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #5B9BD5}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #5B9BD5}
 .dropdown-menu { background-color: #FFFFFF}
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #66C4A8}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #428BCA}
 .navbar-inverse { background-image: none; }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
-.navbar-inverse { border-color: #66C4A8}
+.navbar-inverse { border-color: #080808}
 .navbar-inverse .navbar-brand { color: #FFFFFF}
 .navbar-inverse .navbar-brand:hover { color: #FFFFFF}
-.navbar-inverse .navbar-nav>li>a { color: #DEFFEE}
+.navbar-inverse .navbar-nav>li>a { color: #FFFFFF}
 .navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFFFFF}
-.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #DEFFEE}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #FFFFFF}
 .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #FFFFFF}
-.dropdown-menu>li>a { color: #525252}
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #525252}
-.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #525252}
-.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #525252}
-.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #525252}
-.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #525252}
-
+.dropdown-menu>li>a { color: #5B9BD5}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #FFFFFF}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #5B9BD5}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #5B9BD5}
+.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #5B9BD5}
+.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #5B9BD5}
 
 
 </style>
 </head>
 
 <body> 
-    <!--jumbotron-->
+    <!--jumbotron
 
-    <style type="text/css">
+    # <style type="text/css">
             a.no-uline { color:black; text-decoration:none }
             a:link {color:black; text-decoration:none; }
             a:hover {color:black; text-decoration:none; } 
@@ -61,22 +58,23 @@ nav.justify-content-end{color: #FFFFFF;}
         <h1 class="title" style="font-family: 'Do Hyeon', sans-serif;">선배들의 인생족보, CALUMNI</h1>
         <p class="subtitle" style="font-family: 'Nanum Gothic', sans-serif;">선배들이 어디서 무엇을 하고 있는지 궁금한 후배님을 위해</p>
     </div>   
-    </a>   
+    </a> -->  
     
-
+   
 
     <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-inverse sticky-top bs-docs-nav" style="font-family: 'Nanum Gothic', sans-serif; margin-top: 0; " >
+    <nav class="navbar navbar-expand-lg navbar-inverse sticky-top bs-docs-nav" style="margin-top: 0; " >
     
-        <a class="navbar-brand" href="{% url 'home' %}" > CALUMNI</a>
+        <a class="navbar-brand" href="{% url 'home' %}" style="font-family: 'Gugi', cursive;" > 
+            <img src="{% static 'logo.png' %}" alt="우리선배우리후배" style="width: 40px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse  " id="navbarSupportedContent" style="font-family: 'Nanum Gothic', sans-serif;">
+            <ul class="navbar-nav mr-auto ">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >대학원 </a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px;" >대학원 </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item"  href="#">국내</a>
                         <a class="dropdown-item" href="#">해외</a>
@@ -137,7 +135,7 @@ nav.justify-content-end{color: #FFFFFF;}
 
             <ul class="navbar-nav justify-content-end " style="color:white; font-size: 14px;">
                 <li > 환영합니다.  　{{ user.username }} 님</li>
-                <a href="javascript:{document.getElementById('logout').submit()}"><li class="logoutuser" > 　Logout　 
+                <a href="javascript:{document.getElementById('logout').submit()}"><li class="logoutuser" style="color:white; font-size: 14px;" > 　Logout　 
                     <form id="logout" method="POST" action="{% url 'logout' %}">{% csrf_token %} </form></li></a>
             </ul>
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Cal
+from .models import Cal,Comment
 from django.utils import timezone
 #from .form import BlogPost
 
@@ -40,3 +40,29 @@ def detail(request, post_id):
     #else:
      #   form = BlogPost()
       #  return render(request, 'new.html', {'form':form})
+
+def update(request, post_id):
+     updated_post = get_object_or_404(Cal, pk=post_id)
+     updated_post.title = request.POST['title']
+     updated_post.body = ['body']
+     updated_post.save()
+     return redirect(''+ str(updated_post.id))
+
+def renew(request, post_id):
+     renew_post = get_object_or_404(Cal, pk=post_id)
+     return render(request, 'renew.html', {'renew' : renew_post})
+
+def delete(request, post_id):
+     deleted_post = get_object_or_404(Cal, pk=post_id)
+     deleted_post.delete()
+     return redirect('')
+
+def create_c(request, post_id):
+     comment = Comment()
+     comment.username = request.POST['comment_username']
+     comment.body = request.POST['comment_body']
+     comment.pub_date = timezone.datetime.now()
+     comment.post = get_object_or_404(Cal, pk=post_id)
+     comment.save()
+
+     return redirect('read', post_id=post_id)

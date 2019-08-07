@@ -23,10 +23,10 @@
         .slide{height:400px;overflow:hidden;position:relative;} 
         .slide ul{width:calc(100% * 4);display:flex;transition:1s;} 
         .slide li{width:calc(100% / 4);height:300px;} 
-        /* .slide li:nth-child(1){background:#ffa;} 
+        .slide li:nth-child(1){background:#ffa;} 
         .slide li:nth-child(2){background:#faa;} 
         .slide li:nth-child(3){background:#afa;} 
-        .slide li:nth-child(4){background:#aaf;}  */
+        .slide li:nth-child(4){background:#aaf;} 
         
         .slide input{display:none;} 
         .slide .bullet{position:absolute;bottom:20px;left:0;right:0;text-align:center;z-index:10;} 
@@ -61,8 +61,11 @@
 
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 <body>
 <br>
+<ul><p style="font-family: 'Nanum Gothic', sans-serif; font-size: 32px; color: #5B9BD5;">선배님의 인생족보, 가르쳐주세요!</p></ul>
+
   <!-- 배너 슬라이드 -->
   <div class="slide"> 
     <input type="radio" name="pos" id="pos1" checked> 
@@ -71,8 +74,10 @@
     <input type="radio" name="pos" id="pos4"> 
     <ul> 
       <li>
-        <img class="img" src="https://postfiles.pstatic.net/MjAxOTA3MjdfMjMw/MDAxNTY0MjMxNTAyMDQw.cXzuTRvsonFn1NQASM-QqfqBKPoLyEq__Pw7GOKMByUg.5bZ8-7QdyFEE9I4f5VP7UzGzCGletFt1i_liczD5KxYg.JPEG.lyj64910/%EC%82%BC%EC%84%B1.jpg?type=w966" width="" height="400px" style="margin:auto;">
-        <p class="content"><a href="">삼성 합격수기 바로가기</a></p>
+        <img class="img" src="{% static '삼성.png' %}" width="" height="400px" style="margin:auto;">
+        <p class="content">
+            <button type="button" class="btn btn-light"><a class="go" href="">삼성 합격수기 바로가기</a></button>
+          </p>
       </li> 
       <li>
         <img class="img" src="https://post-phinf.pstatic.net/MjAxNzA3MDRfMTcy/MDAxNDk5MTQ4NzM4MzU1.eDf2C2MmEuhrltHSqsCc7VIj1O_Ip0UABrgyL1Azvv8g.rAxgruhFHMUzTSrfG0PBOoPY0RyKPEV1ySuYn1w9lakg.JPEG/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B3%B5%EC%82%AC.jpg?type=w1200" width="200" height="200">
