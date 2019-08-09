@@ -9,7 +9,7 @@ class Cal(models.Model):
     write = models.TextField(null=True)
     act = models.TextField(null=True)
     schoolact = models.TextField(null=True)
-    cer = models.CharField(null=True, max_length=50)
+    cer = models.TextField(null=True)
     pub_date = models.DateTimeField("data published")
     image = models.ImageField(upload_to='images/', blank=True)
     category1 = models.CharField(max_length=10,null=True)
