@@ -1,176 +1,180 @@
  {% load staticfiles %}
  <!DOCTYPE html>
-<html lang="ko">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ <html lang="ko">
 
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet">
-    
-<style type="text/css">
-.navbar-inverse { background-color: #5B9BD5}
-.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { background-color: #5B9BD5}
-.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { background-color: #5B9BD5}
-.dropdown-menu { background-color: #FFFFFF}
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-color: #428BCA}
-.navbar-inverse { background-image: none; }
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { background-image: none; }
-.navbar-inverse { border-color: #080808}
-.navbar-inverse .navbar-brand { color: #FFFFFF}
-.navbar-inverse .navbar-brand:hover { color: #FFFFFF}
-.navbar-inverse .navbar-nav>li>a { color: #FFFFFF}
-.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus { color: #FFFFFF}
-.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus { color: #FFFFFF}
-.navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus { color: #FFFFFF}
-.dropdown-menu>li>a { color: #5B9BD5}
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus { color: #FFFFFF}
-.navbar-inverse .navbar-nav>.dropdown>a .caret { border-top-color: #5B9BD5}
-.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-top-color: #5B9BD5}
-.navbar-inverse .navbar-nav>.dropdown>a .caret { border-bottom-color: #5B9BD5}
-.navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #5B9BD5}
+ <head>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+     </script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+     </script>
+
+     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap&subset=korean" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Gugi&display=swap&subset=korean" rel="stylesheet">
+     <link rel="stylesheet" href="{% static 'css/base/base.css' %}">
+     {% block csslink %}
+     {% endblock %}
+
+     {% block title %}
+     {% endblock %}
+     <style type="text/css">
 
 
-</style>
-</head>
 
-<body> 
-    <!--jumbotron
+     </style>
+ </head>
 
-    # <style type="text/css">
-            a.no-uline { color:black; text-decoration:none }
-            a:link {color:black; text-decoration:none; }
-            a:hover {color:black; text-decoration:none; } 
-            a:active   {color:black; text-decoration:none}
-            a:visited  {color:black; text-decoration:none} 
-            
-    </style>
+ <body>
+     <nav class="navbar navbar-expand-lg navbar-inverse sticky-top bs-docs-nav" style="margin-top: 0; ">
 
-    <a href="{% url 'home' %}" >
+         <a class="navbar-brand" href="{% url 'home' %}" style="font-family: 'Gugi', cursive;">
+             <img src="{% static 'image/logo.png' %}" alt="우리선배우리후배" style="width: 40px;">우리선배우리후배</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+         </button>
 
-    <div class="jumbotron"  style="height:200px; text-decoration: none; margin-bottom:0;">
-        <h1 class="title" style="font-family: 'Do Hyeon', sans-serif;">선배들의 인생족보, CALUMNI</h1>
-        <p class="subtitle" style="font-family: 'Nanum Gothic', sans-serif;">선배들이 어디서 무엇을 하고 있는지 궁금한 후배님을 위해</p>
-    </div>   
-    </a> -->  
-    
-   
+         <div class="collapse navbar-collapse  " id="navbarSupportedContent"
+             style="font-family: 'Nanum Gothic', sans-serif;">
+             <ul class="navbar-nav mr-auto ">
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px;">대학원
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="{% url 'board' 'a' 'x' %}">국내</a>
+                         <a class="dropdown-item" href="{% url 'board' 'a' 'y' %}">해외</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="#">etc</a>
+                     </div>
+                 </li>
 
-    <!--navbar-->
-    <nav class="navbar navbar-expand-lg navbar-inverse sticky-top bs-docs-nav" style="margin-top: 0; " >
-    
-        <a class="navbar-brand" href="{% url 'home' %}" style="font-family: 'Gugi', cursive;" > 
-            <img src="{% static 'logo.png' %}" alt="우리선배우리후배" style="width: 40px;"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px;">
+                         취업</a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="{% url 'board' 'b' 'private' %}">사기업</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> 삼성계열</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> LG계열</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> 현대계열</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> 롯데계열</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> SK계열</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="{% url 'board' 'b' 'official' %}">공기업</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> 한국전력공사</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> 한국수자원공사</a>
+                         <a class="dropdown-item" style="font-size: 12px;" href="#"> 코레일</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="#">etc</a>
 
-        <div class="collapse navbar-collapse  " id="navbarSupportedContent" style="font-family: 'Nanum Gothic', sans-serif;">
-            <ul class="navbar-nav mr-auto ">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px;" >대학원 </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item"  href="#">국내</a>
-                        <a class="dropdown-item" href="#">해외</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">etc</a>
-                        </div>    
-            </li>
+                     </div>
+                 </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >
-                    취업</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">사기업</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> 삼성계열</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> LG계열</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> 현대계열</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> 롯데계열</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> SK계열</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">공기업</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> 한국전력공사</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> 한국수자원공사</a>
-                    <a class="dropdown-item" style="font-size: 12px;" href="#"> 코레일</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">etc</a>
-                    
-                </div>
-            </li>
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px;">
+                         공무원
+                     </a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="{% url 'board' 'c' 'admin' %}">행정, 세무, 사서</a>
+                         <a class="dropdown-item" href="{% url 'board' 'c' 'technic' %}">기술직</a>
+                         <a class="dropdown-item" href="{% url 'board' 'c' 'nurse' %}">간호, 보건</a>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >
-                  공무원
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">행정, 세무, 사서</a>
-                  <a class="dropdown-item" href="#">기술직</a>
-                  <a class="dropdown-item" href="#">간호, 보건</a>
-                  
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">etc</a>
-                </div>
-              </li>
-            </li>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="#">etc</a>
+                     </div>
+                 </li>
+                 </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 14px;" >창업</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">서비스</a>
-                        <a class="dropdown-item" href="#">유통</a>
-                        <a class="dropdown-item" href="#">제조</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">etc</a>
-                      </div>
-            </li>
-            </ul>
+                 <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                         style="font-size: 14px;">창업</a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="{% url 'board' 'd' 'service' %}">서비스</a>
+                         <a class="dropdown-item" href="{% url 'board' 'd' 'distiribution' %}">유통</a>
+                         <a class="dropdown-item" href="{% url 'board' 'd' 'make' %}">제조</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="{% url 'board' 'd' 'etc' %}">etc</a>
+                     </div>
+                 </li>
+             </ul>
 
-                {% if user.is_authenticated %}
+             {% if user.is_authenticated %}
 
-            <ul class="navbar-nav justify-content-end " style="color:white; font-size: 14px;">
-                <li > 환영합니다.  　{{ user.username }} 님</li>
-                <a href="javascript:{document.getElementById('logout').submit()}"><li class="logoutuser" style="color:white; font-size: 14px;" > 　Logout　 
-                    <form id="logout" method="POST" action="{% url 'logout' %}">{% csrf_token %} </form></li></a>
-            </ul>
+             <ul class="navbar-nav justify-content-end " style="color:white; font-size: 15px;">
+                 <li> 환영합니다. 　{{ user.username }} 님</li>
+                 <a href="javascript:{document.getElementById('logout').submit()}">
+                     <li class="logoutuser" style="color:white; font-size: 14px;"> 　Logout　
+                         <form id="logout" method="POST" action="{% url 'logout' %}">{% csrf_token %} </form>
+                     </li>
+                 </a>
+             </ul>
 
-            <ul class="navbar-nav justify-content-end " style="font-size: 14px;">
-                <li class="nav-item"  >
-                <a class="nav-link" href="{% url 'new' %}"  >글쓰기　</a>
-                </li>
-            </ul>
+             <ul class="navbar-nav justify-content-end " style="font-size: 15px;">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'new' %}">글쓰기　</a>
+                 </li>
+             </ul>
 
 
-                {% else %}
-            <ul class="navbar-nav justify-content-end " style="font-size: 14px;">
-            <li class="nav-item" >
-                <a class="nav-link" href="{% url 'login' %}" >로그인</a>
-            </li> 
-            
-            </ul>
+             {% else %}
+             <ul class="navbar-nav justify-content-end " style="font-size: 15px;">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'login' %}">로그인</a>
+                 </li>
 
-            <ul class="navbar-nav justify-content-end " style="font-size: 14px;">
-                <li class="nav-item"  >
-                <a class="nav-link" href="{% url 'login' %}"  >글쓰기　</a>
-                </li>
-            </ul>
+             </ul>
 
+             <ul class="navbar-nav justify-content-end " style="font-size: 15px;">
+                 <li class="nav-item">
+                     <a class="nav-link" href="{% url 'login' %}">글쓰기　</a>
+                 </li>
+             </ul>
+             {% endif %}
+             <form class="form-inline my-2 my-lg-0">
+                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                 <button class="btn btn-light my-2 my-sm-0" type="submit">검색</button>
+             </form>
+         </div>
+     </nav>
+     {% block content %}
+     {% endblock %}
 
-                {% endif %}
+     <div class="ad-box">
+         <span>광고칸 인데요~!!!</span>
+     </div>
 
-            
-
-            <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
-            <button class="btn btn-light my-2 my-sm-0" type="submit">검색</button>
-            </form>
-        </div>
-        </nav>
-        {% block content %}
-        {% endblock %}
-</body>
+     <footer class="footer">
+         <div class="footer-content">
+             <div class="footer-title">
+                 <span>CALUMNI X 우리선배우리후배<span>
+             </div>
+             <p class="footer-desc">
+                 우리선배우리후배는 학교 선배들이 취업을 어떻게 준비했는지 궁금해하는 후배들을 위해 만들어진 웹사이트입니다.
+             </p>
+         </div>
+         <div class="footer-content">
+             <div class="footer-team">
+                 <span>충남대학교 멋쟁이사자처럼</span>
+             </div>
+             <div class="footer-member">
+                <span>TEAM CALUMNI 이민지 이유진 조아름 <br>supported by 박주영</span>
+             </div>
+             <div class="footer-copy">
+                <span>All right deserved. 2019~ calumni</span>
+             </div>
+         </div>
+     </footer>
+ </body>

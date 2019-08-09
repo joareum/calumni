@@ -1,149 +1,124 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-<title>Calumni</title>
-
-<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
-
-<style>
-  h2{
-    font-family: "Nanum Gothic", sans-serif;
-    font-size: 20px;
-  }
-
-</style>
-
-<style> 
-        *{margin:0;padding:0;} 
-        ul,li{list-style:none; margin:0px; text-align: center;} 
-        .slide{height:400px;overflow:hidden;position:relative;} 
-        .slide ul{width:calc(100% * 4);display:flex;transition:1s;} 
-        .slide li{width:calc(100% / 4);height:300px;} 
-        .slide li:nth-child(1){background:#ffa;} 
-        .slide li:nth-child(2){background:#faa;} 
-        .slide li:nth-child(3){background:#afa;} 
-        .slide li:nth-child(4){background:#aaf;} 
-        
-        .slide input{display:none;} 
-        .slide .bullet{position:absolute;bottom:20px;left:0;right:0;text-align:center;z-index:10;} 
-        .slide .bullet label{width:10px;height:10px;border-radius:10px;border:2px solid #666;display:inline-block;background:#fff;font-size:0;transition:0.5s;cursor:pointer;} 
-     
-        /* 슬라이드 조작 */ 
-        #pos1:checked ~ ul{margin-left:0;} 
-        #pos2:checked ~ ul{margin-left:-100%;} 
-        #pos3:checked ~ ul{margin-left:-200%;} 
-        #pos4:checked ~ ul{margin-left:-300%;} 
-        
-     
-        /* bullet 조작 */ 
-        #pos1:checked ~ .bullet label:nth-child(1), 
-        #pos2:checked ~ .bullet label:nth-child(2), 
-        #pos3:checked ~ .bullet label:nth-child(3), 
-        #pos4:checked ~ .bullet label:nth-child(4){background:#666;},
-        
-
-        /* 로고 */
-        .img{
-         text-align: center;
-        }
-
-
-        content{
-
-        }
-      </style> 
-
-</head>
 
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+{% endblock %}
+
+{% block title %}
+<title>Calumni</title>
+{% endblock %}
+<head>
+</head>
+
 {% block content %}
 
 <body>
-<br>
-<ul><p style="font-family: 'Nanum Gothic', sans-serif; font-size: 32px; color: #5B9BD5;">선배님의 인생족보, 가르쳐주세요!</p></ul>
+  <div class="header-desc">
+    <h1>선배님의 취업족보, 가르쳐주세요!</h1>
+  </div>
 
   <!-- 배너 슬라이드 -->
-  <div class="slide"> 
-    <input type="radio" name="pos" id="pos1" checked> 
-    <input type="radio" name="pos" id="pos2"> 
-    <input type="radio" name="pos" id="pos3"> 
-    <input type="radio" name="pos" id="pos4"> 
-    <ul> 
-      <li>
-        <img class="img" src="{% static '삼성.png' %}" width="" height="400px" style="margin:auto;">
-        <p class="content">
-            <button type="button" class="btn btn-light"><a class="go" href="">삼성 합격수기 바로가기</a></button>
-          </p>
-      </li> 
-      <li>
-        <img class="img" src="https://post-phinf.pstatic.net/MjAxNzA3MDRfMTcy/MDAxNDk5MTQ4NzM4MzU1.eDf2C2MmEuhrltHSqsCc7VIj1O_Ip0UABrgyL1Azvv8g.rAxgruhFHMUzTSrfG0PBOoPY0RyKPEV1ySuYn1w9lakg.JPEG/%ED%95%9C%EA%B5%AD%EC%A0%84%EB%A0%A5%EA%B3%B5%EC%82%AC.jpg?type=w1200" width="200" height="200">
-        <p class="content">한전</p>
-      </li> 
-      <li></li> 
-      <li></li> 
-    </ul> 
-    <p class="bullet"> 
-      <label for="pos1">1</label> 
-      <label for="pos2">2</label> 
-      <label for="pos3">3</label> 
-      <label for="pos4">4</label> 
-    </p> 
-  </div>  
+  <div class="slide">
+    <input type="radio" name="pos" id="pos1" checked >
+    <input type="radio" name="pos" id="pos2">
+    <input type="radio" name="pos" id="pos3">
+    <input type="radio" name="pos" id="pos4">
+    <ul>
+      <li class="slide-item">
+        <a href="{% url 'board' 'd' 'service' %}"></a>
+      </li>
+      <li class="slide-item">
+        <a href="{% url 'board' 'b' 'official' %}"></a>
+      </li>
+      <li class="slide-item">
+        <a href="{% url 'board' 'c' 'admin' %}"></a>
+      </li>
+      <li class="slide-item">
+        <a href="{% url 'board' 'b' 'private' %}"></a>
+      </li>
+    </ul>
+    <p class="bullet">
+      <label for="pos1">1</label>
+      <label for="pos2">2</label>
+      <label for="pos3">3</label>
+      <label for="pos4">4</label>
+    </p>
+  </div>
 
+  <div class="post-section" id="side-left-top" >
+    <div class="post-header">
+      <span>취업 합격 후기</span>
+      
+      <!--<span>전체 보기</span>-->
+      <a href="{% url 'bigboard' 'b' %}?board=취업">전체보기</a>
+    </div>
+    <div class="post-content">
+    {% for employ in employs %}
+      <a href="{% url 'detail' employ.id %}">
+        <div class="post-item">
+          <span>{{ employ.title }}</span>
+          <span>{{ username }}</span>
+        </div>
+      </a>
+    {% endfor %}
+    </div>
+  </div>
 
-  
-
-  <!-- <div class="title">게시판</div>
-
-  <table class="table">
-      <thead>
-          <tr>
-              <th>No.</th>
-              <th>Title</th>
-              <th>합격한 기업, 직무</th>
-              <th>학점</th>
-              <th>자격증</th>
-              <th>합격수기</th>
-              <th>공모전</th>
-              <th>대외활동</th>
-              <th>교내활동</th>
-          </tr>
-      </thead>
-      <tbody>
-          {% if post_list %}
-              {% for post in post_list %}
-      <tr>
-      <td>{{ post.title }}</tr>
-      <td>{{ post.apply }}</tr>
-      <td>{{ post.score }}</tr>
-      <td>{{ post.cer }}</tr>
-      <td>{{ post.write }}</tr>
-      <td>{{ post.body }}</tr>
-      <td>{{ post.act }}</tr>
-      <td>{{ post.schoolact }}</tr>   
-      </tr>
+  <div class="post-section" id="side-right-top" >
+      <div class="post-header">
+        <span>공무원 합격 후기</span>
+        <a href="{% url 'bigboard' 'b' %}?board=공무원">전체보기</a>
+      </div>
+      <div class="post-content">
+      {% for official in officials %}
+        <a href="{% url 'detail' official.id %}">
+          <div class="post-item">
+            <span>{{ official.title }}</span>
+            <span>{{ username }}</span>
+          </div>
+        </a>
       {% endfor %}
-      {% else %}
-      {% endif %}
-  </tbody>
-</table> -->
+      </div>
+    </div>
 
-<br><br><br>
+  <div class="post-section" id="side-left-bottom" >
+      <div class="post-header">
+        <span>대학원 합격 후기</span>
+        <a href="{% url 'bigboard' 'a' %}?board=대학원">전체보기</a>
+      </div>
+      <div class="post-content">
+      {% for univ in univs %}
+        <a href="{% url 'detail' univ.id %}">
+          <div class="post-item">
+            <span>{{ univ.title }}</span>
+            <span>{{ username }}</span>
+          </div>
+        </a>
+      {% endfor %}
+      </div>
+    </div>
 
-        {% for cal in cals %}
-        
-        <h2 style="text-align: center;
-        font-display: center;
-        font-size: 20px;"><a  href="{% url 'detail' cal.id %}">{{ cal.title }}</h2>
-        <!-- <h2><a href="{% url 'detail' cal.id %}">{{ cal.write }}</a></h2> -->
-        <br>
+    <div class="post-section" id="side-right-bottom" >
+        <div class="post-header">
+          <span>창업 성공 후기</span>
+          <a href="{% url 'bigboard' 'd' %}?board=창업">전체보기</a>
+        </div>
+        <div class="post-content">
+        {% for make in makes %}
+          <a href="{% url 'detail' make.id %}">
+            <div class="post-item">
+              <span>{{ make.title }}</span>
+              <span>{{ username }}</span>
+            </div>
+          </a>
         {% endfor %}
-        
+        </div>
+      </div>
+
+
   {% endblock %}
 </body>
+
 </html>

@@ -1,6 +1,6 @@
+<!-- 글쓰기페이지 -->
 <head>
 <style>
-
 .question{
     /* width:100px; */
     text-align:center;
@@ -8,7 +8,6 @@
     font-size:20px;
     font-weight:600;
     background-color:#E0ECF8;
-    
     /* color:white; */
 }
 
@@ -33,23 +32,64 @@
     float:right;
 }
 
+.placeholder{
+
+    vertical-align:middle;
+}
+
+select {
+  width: 350px;
+  
+  font-family: inherit;
+  background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #999;
+  border-radius: 0px;
+}
+
+select::-ms-expand {
+  /* for IE 11 */
+  display: none;
+}
 </style>
 
 </head>
 
 {% extends 'base.html' %}
-{% block content %}
 {% load staticfiles %}
+
+{% block csslink %}
+<link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+
 <body>
 <br>
 <form action="{% url 'create' %}" id="cal-form" method="POST" enctype="multipart/form-data" style="text-align: center;">
     {% csrf_token %}
-    <br><br>
-    
-        <div class="card" style="margin-top:50px; margin-left:100px; margin-right:100px; border-radius:10px;">
+    <br>
+    <div class="card" style="margin-top:50px; margin-left:100px; margin-right:100px; border-radius:10px;">
         <div class="card-body">
-        <div class="question" for="cal-title"></div><br>
-        <div><input type="text" name='cal_title' class="answer" placeholder="제목">
+            <div class="question" for="cal-title"></div><br>
+        <div><input type="text" name='cal_title' class="answer" placeholder="제목"><br><br>
+
+        <select name="category1" id="big" style="margin-left:100px; ">
+            <option value=""></option>  
+            <option value="a">대학원</option>
+            <option value="b">취업</option>
+            <option value="c">공무원</option>
+            <option value="d">창업</option>
+        </select><select name="category2" id="b" style=" margin-right:100px;"> </select>
+        
+
     
     <br><br>
     <div class="dropdown-divider"></div>
@@ -69,25 +109,25 @@
     <div class="dropdown-divider"></div>
 
         <div class="question" for="cal-write"></div><br>
-        <input type="text" class="textbox" name="cal_write" placeholder="합격수기를 자유롭게 들려주세요!">
+        <textarea type="text" class="textbox" name="cal_write" placeholder="합격수기를 자유롭게 들려주세요!"></textarea>
     <br><br>
     
         <div class="dropdown-divider"></div>
 
         <div class="question" for="cal-body"></div><br>
-        <input type="text" class="textbox" name="cal_body" placeholder="공모전에 대한 이야기 들려주세요!">
+        <textarea type="text" class="textbox" name="cal_body" placeholder="공모전에 대한 이야기 들려주세요!" ></textarea>
     <br><br>
     
         <div class="dropdown-divider"></div>
         <div class="question" for="cal-act"></div><br>
-         <input type="text" class="textbox" name="cal_act" placeholder="기억에 남는 대외활동이 있으신가요?">
+         <textarea type="text" class="textbox" name="cal_act" placeholder="기억에 남는 대외활동이 있으신가요?"></textarea>
     <br><br>
     
         <div class="dropdown-divider"></div>
 
         <div class="question" for="cal-schoolact"></div><br>
     
-        <input type="text" class="textbox" name="cal_schoolact" placeholder="대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등)">
+        <textarea type="text" class="textbox" name="cal_schoolact" placeholder="대학시절 어떤 교내 활동을 하셨는지 자유롭게 기술해주세요! (교환학생, 교내대회, 봉사활동 등)"></textarea>
     <br><br>
 
         
@@ -99,9 +139,9 @@
         </div>
 
         <br><br>
-    <div class="input-container">
+    <div class="textarea-container">
     
-        <input type="submit" class="btn btn-dark" form="cal-form" value="글쓰기"/>
+        <input type="submit" class="btn btn-dark" form="cal-form" value="글쓰기">
     </div>
 
 </div>
@@ -109,7 +149,7 @@
 
 
 </form>
-
+<script type="text/javascript" src="{% static 'js/home/home.js' %}"></script>
 {% endblock %}
 
 </body>

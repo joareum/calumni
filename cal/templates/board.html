@@ -1,0 +1,63 @@
+<style>
+
+
+.post-header {
+  width: 40%;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  font-weight: 600;
+}
+.post-form {
+    border: 1px solid #c7c7c7;
+    width: 40%;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 40px;
+}
+.post-content {
+  
+  
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  
+  padding: 15px;
+}
+}
+
+
+
+
+</style>      
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block csslink %}
+{% endblock %}
+
+{% block title %}
+<title>Calumni</title>
+{% endblock %}
+
+
+{% block content %}
+ <div class = "post-header"><span>{{ board_name }} 합격 후기</span></div>
+
+ <div class= "post-form">
+ {% for post in posts %}
+<a href="{% url 'detail' post.id %}">
+<div class = "post-content">{{ post.title }}</div></a>
+
+{% endfor %}</div>
+{% endblock %}

@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\areum\Desktop\calumni\myvenv"
+VIRTUAL_ENV="C:\Users\areum\Desktop\calumni-2\myvenv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

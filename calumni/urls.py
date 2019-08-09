@@ -18,6 +18,7 @@ urlpatterns = [
     path('<int:post_id>/delete/', cal.delete, name="delete"),
     path('<int:post_id>/renew/', cal.renew, name='renew'),
     path('<int:post_id>/comment/create', cal.create_c, name="comment"),
-    
-    #path('newblog',views.blogpost, name='newblog'),   
+    path('board/<str:category1>/<str:category2>/',cal.board, name="board"),
+    path('board/<str:category1>',cal.bigboard, name='bigboard'),
+      
 ] 

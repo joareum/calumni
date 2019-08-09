@@ -12,6 +12,8 @@ class Cal(models.Model):
     cer = models.CharField(null=True, max_length=50)
     pub_date = models.DateTimeField("data published")
     image = models.ImageField(upload_to='images/', blank=True)
+    category1 = models.CharField(max_length=5,null=True)
+    category2 = models.CharField(max_length=5,null=True)
 
     def __str__(self):
         return self.title

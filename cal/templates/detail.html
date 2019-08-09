@@ -74,44 +74,39 @@
             </div>
           </div>
        
-        <br><br><br><br>
-<div>
-    <form action="{% url 'comment' post.id %}" method="POST">
-      {% csrf_token %}
-      <input type="text" name="comment_username" placeholder="닉네임">
-      <textarea name="" id="" cols="30" rows="10" name="comment_body" placeholder="댓글을 입력해주세요"></textarea>
-      <input type="submit" value="댓글 작성"></form>
-</div>
-
-{% for comment in cal.comment_set.all %}
-  <div>
-    <span>{{ comment.username }}</span>
-    <span>{{ comment.pub_date }}</span>
-    <p>{{ comment.body }}</p>
-  </div>
-  {% endfor %}
-
-    <div>
-      
-    </div>
-    <a class="renew" href="{% url 'renew' post.id %}">수정</a>
-    <a class="delete" href="{% url 'delete' post.id %}">삭제</a>
-
-    <!-- <div class="renew">
-        <p><a class="renew" href="{% url 'renew' post.id %}">수정</a></p>
-      </div> -->
-
-      <form action="{% url 'delete' post.id %}" id="post-delete" method="POST">
+        <br><br>
+<form action="{% url 'delete' post.id %}" id="post-delete" method="POST">
         {% csrf_token %}
         </form>
 
         <div class="input-container">
         <input type="submit" class="delete" form="post-delete" value="글 삭제하기"/>
         </div>
-      <!-- <input form="post-delete" type="submit" class="delete">글 삭제하기</input> -->
+     
+<form action="{% url 'renew' post.id %}" id="post-renew" method="POST">
+        {% csrf_token %}
+        </form>
+
+        <div class="input-container">
+        <input type="submit" class="renew" form="post-renew" value="글 수정하기"/>
+        </div>
+<div>
+    <form action="{% url 'comment' post.id %}" method="POST">
+      {% csrf_token %}
+      <input type="text" name="comment_username" placeholder="닉네임">
+      <textarea cols="30" rows="10" name="comment_body" placeholder="댓글을 입력해주세요"></textarea>
+      <input type="submit" value="댓글 작성"></form>
+</div>
+
+{% for comment in post.comment_set.all %}
+  <div>
+    <span>{{ comment.username }}</span>
+    <span>{{ comment.pub_date }}</span>
+    <p>{{ comment.body }}</p>
+  </div>
+  {% endfor %}
     
-    
-    
+  
 </body>
 {% endblock %}    
 </html>
